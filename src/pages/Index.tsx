@@ -1,16 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useCallback } from 'react';
+import Topbar from '@/components/Topbar';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import LogosSection from '@/components/LogosSection';
+import CountersSection from '@/components/CountersSection';
+import FeaturesSection from '@/components/FeaturesSection';
+import SoftwareImageSection from '@/components/SoftwareImageSection';
+import PitzonSection from '@/components/PitzonSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import BonosSection from '@/components/BonosSection';
+import StepsSection from '@/components/StepsSection';
+import OptionsSection from '@/components/OptionsSection';
+import FaqSection from '@/components/FaqSection';
+import FinalCtaSection from '@/components/FinalCtaSection';
+import Footer from '@/components/Footer';
+import DemoModal from '@/components/DemoModal';
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = useCallback(() => setModalOpen(true), []);
+  const closeModal = useCallback(() => setModalOpen(false), []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <>
+      <Topbar />
+      <Navbar onOpenModal={openModal} />
+      <HeroSection onOpenModal={openModal} />
+      <LogosSection />
+      <CountersSection />
+      <FeaturesSection />
+      <SoftwareImageSection />
+      <PitzonSection />
+      <TestimonialsSection />
+      <BonosSection onOpenModal={openModal} />
+      <StepsSection onOpenModal={openModal} />
+      <OptionsSection />
+      <FaqSection />
+      <FinalCtaSection onOpenModal={openModal} />
+      <Footer />
+      <DemoModal open={modalOpen} onClose={closeModal} />
+    </>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
