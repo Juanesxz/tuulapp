@@ -2,17 +2,17 @@ const features = [
   { icon: '📋', title: 'Órdenes de Servicio Digitales', desc: 'Crea, asigna y da seguimiento a cada trabajo con fotos, observaciones y firma del cliente. Todo registrado. Nada perdido.' },
   { icon: '👥', title: 'Gestión de Clientes y Vehículos', desc: 'Historial completo de cada cliente y cada vehículo. Profesionalismo visible desde el primer contacto.' },
   { icon: '📦', title: 'Control de Inventario', desc: 'Sabe en tiempo real qué tienes, qué se acaba y cuánto cuesta. Elimina las fugas de dinero silenciosas.' },
-  { icon: '📊', title: 'Tablero de Control en Tiempo Real', desc: 'Ve el estado de cada vehículo y cada técnico desde tu celular. Dirige tu negocio sin tener que estar ahí.' },
+  { icon: '📊', title: 'Tablero de Control en Tiempo Real', desc: 'Ve el estado de cada vehículo y cada técnico. Dirige tu negocio sin tener que estar ahí.' },
   { icon: '💰', title: 'Liquidación de Técnicos', desc: 'Mide productividad real, liquida de forma justa y toma decisiones con datos — no con suposiciones.' },
+  { icon: '📸', title: 'Registro Fotográfico', desc: 'Documenta cada servicio con fotos reales. Tus clientes ven el antes y el después — y confían más en ti que en cualquier otro taller.' },
   { icon: '📱', title: 'App para tus Clientes — PITZON', desc: 'Tus clientes agendan, hacen seguimiento y ven su historial. Ellos vuelven solos. La recurrencia se dispara.' },
 ];
 
 const FeaturesSection = () => (
   <section className="bg-background border-b border-border py-20 px-5 md:px-[60px]">
     <div className="max-w-[1100px] mx-auto">
-      <span className="text-[11px] font-bold tracking-[3px] uppercase text-primary mb-3 block">Todo tu taller en un solo lugar</span>
-      <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] mb-11 tracking-tight">
-        Finalmente la plataforma de gestión<br />que tu taller <span className="text-primary">necesita</span>
+      <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] mb-11 tracking-tight text-center">
+        Toda la gestión de tu taller<br />en un <span className="text-primary">solo lugar</span>
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0.5 border border-border rounded-[14px] overflow-hidden">
         {features.map((f) => (

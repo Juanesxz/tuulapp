@@ -1,11 +1,9 @@
 import { useState, useCallback } from 'react';
-import Topbar from '@/components/Topbar';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import LogosSection from '@/components/LogosSection';
 import CountersSection from '@/components/CountersSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import FeaturesMarquee from '@/components/FeaturesMarquee';
 import SoftwareImageSection from '@/components/SoftwareImageSection';
 import PitzonSection from '@/components/PitzonSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -24,13 +22,11 @@ const Index = () => {
 
   return (
     <>
-      <Topbar />
       <Navbar onOpenModal={openModal} />
       <HeroSection onOpenModal={openModal} />
       <LogosSection />
       <CountersSection />
       <FeaturesSection />
-      <FeaturesMarquee />
       <SoftwareImageSection />
       <PitzonSection />
       <TestimonialsSection />

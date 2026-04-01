@@ -17,7 +17,6 @@ const TestimonialsSection = () => (
   <section className="bg-secondary border-t border-b border-border py-20 px-5 md:px-[60px]">
     <div className="max-w-[1140px] mx-auto">
       <div className="text-center mb-12">
-        <span className="text-[11px] font-bold tracking-[3px] uppercase text-primary mb-3 block">Casos reales</span>
         <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] tracking-tight">
           Esto dicen los dueños de taller<br />que ya <span className="text-primary">dieron el salto</span>
         </h2>
