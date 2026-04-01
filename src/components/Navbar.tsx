@@ -11,7 +11,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => (
       onClick={onOpenModal}
       className="bg-primary text-primary-foreground font-display font-extrabold text-[15px] tracking-wide px-6 py-2.5 rounded-md uppercase hover:bg-primary-dark hover:-translate-y-px transition-all"
     >
-      ▶ Agendar mi Demo Gratis
+      Agendar mi Demo Gratis
     </button>
   </nav>
 );
