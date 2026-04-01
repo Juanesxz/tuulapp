@@ -30,6 +30,7 @@ const Index = () => {
       <LogosSection />
       <CountersSection />
       <FeaturesSection />
+      <FeaturesMarquee />
       <SoftwareImageSection />
       <PitzonSection />
       <TestimonialsSection />
