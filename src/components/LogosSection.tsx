@@ -1,14 +1,15 @@
 const brands = ['EUROTALLER', 'AVANTALLER', 'RUTA 4', 'MOTOFIX', 'RUTA 18'];
 
 const LogosSection = () => (
-  <section className="bg-secondary border-t border-b border-border py-[38px] px-5 md:px-[60px] text-center">
-    <p className="text-[11px] tracking-[3px] uppercase text-muted-foreground mb-6 font-semibold">Ellos ya confían en TuulApp</p>
-    <div className="flex items-center justify-center gap-3.5 flex-wrap">
-      {brands.map((b) => (
-        <div key={b} className="bg-card border border-border rounded-lg px-5 py-2.5 font-display text-[17px] font-extrabold tracking-wider text-muted-foreground hover:text-white hover:border-border-green transition-all">
-          ⭐ {b}
-        </div>
-      ))}
+  <section className="bg-primary/90 border-t border-b border-primary/50 py-3 overflow-hidden">
+    <div className="relative">
+      <div className="flex animate-marquee whitespace-nowrap">
+        {[...brands, ...brands, ...brands, ...brands].map((b, i) => (
+          <span key={i} className="mx-8 font-display text-[17px] font-extrabold tracking-wider text-white uppercase inline-flex items-center gap-2">
+            ⭐ {b}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
 );
