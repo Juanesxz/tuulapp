@@ -1,44 +1,82 @@
-import pitzonHero from '@/assets/pitzon-hero.png';
-
 const PitzonSection = () => (
-  <section className="bg-background border-b border-border px-5 md:px-[60px] py-20">
-    <div className="max-w-[1100px] mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] tracking-tight">
-          🚀 <span className="text-primary">PITZON</span> — Lo que ningún otro<br />software del mercado tiene
+  <section
+    className="relative overflow-hidden border-b border-white/5 px-5 md:px-[60px] py-16"
+    style={{
+      background:
+        "radial-gradient(circle at 100% 50%, rgba(255, 90, 0, 0.08) 0%, #121f32 100%)",
+    }}
+  >
+    {/* Glow decorativo lateral */}
+    <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] bg-[#ff5a00]/10 blur-[120px] rounded-full pointer-events-none" />
+
+    <div className="max-w-[1100px] mx-auto relative z-10">
+      <div className="text-center mb-10 flex flex-col items-center">
+        {/* Nueva etiqueta "No verás nada igual" */}
+        <div className="inline-flex items-center px-6 py-2 rounded-full border border-primary/30 bg-secondary/50 backdrop-blur-sm mb-6 animate-fade-up">
+          <span className="text-white/80 font-display font-bold text-[13px] tracking-[2px] uppercase">
+            No verás nada igual...
+          </span>
+        </div>
+
+        <h2 className="font-display text-[clamp(28px,4vw,40px)] font-black uppercase text-white leading-[1.05] tracking-tight italic">
+          <span className="text-[#ff5a00]">¡PITZON!</span> Lo que ningún otro
+          software del mercado tiene
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">
-            Al adquirir TuulApp, tus clientes reciben su propia aplicación. Con <strong className="text-foreground">PITZON</strong> pueden agendar citas, ver el historial completo de su vehículo y recibir recordatorios de mantenimiento. Tus clientes vuelven solos. La recurrencia aumenta. Y eso se siente en tus ingresos desde el primer mes.
+          <p className="text-white/70 mb-8 text-[16px] mx-6 text-center font-light leading-relaxed">
+            Al adquirir TuulApp, te regalaré{" "}
+            <strong className="font-bold">PITZON</strong>, la app para tus
+            clientes. Con <strong className="font-bold">PITZON</strong> tus
+            clientes podrán <strong className="font-bold">AGENDAR CITAS</strong>{" "}
+            en tu taller.
           </p>
-          <p className="font-display font-black text-primary text-lg uppercase mb-8">
-            Dos aplicaciones por el precio de una — y no existe en ningún otro software del mercado.
-          </p>
+
+          <div className="flex justify-center relative mb-6">
+            <div className="absolute inset-0 bg-[#ff5a00]/15 blur-[80px] rounded-full scale-75 animate-pulse" />
+            <img
+              src="https://s3.us-east-1.amazonaws.com/cdn.media-349771550884-us-east-1-an/3_post_en_Instagram.webp"
+              alt="PITZON App"
+              className="relative z-10 max-w-full w-[480px] rounded-3xl"
+              style={{
+                filter: "drop-shadow(0 20px 80px rgba(255, 90, 0, 0.25))",
+              }}
+            />
+          </div>
 
           <div className="space-y-4">
             {[
-              { icon: '⭐', text: 'Conecta mejor con tus clientes' },
-              { icon: '🛡️', text: 'Genera más confianza en cada servicio' },
-              { icon: '📈', text: 'Aumenta tu flujo de nuevos clientes' },
-              { icon: '⚙️', text: 'Haz parte de la red más grande de talleres' },
+              { icon: "⭐", text: "Conecta mejor con tus clientes" },
+              { icon: "🛡️", text: "Genera más confianza en cada servicio" },
+              { icon: "📈", text: "Aumenta tu flujo de nuevos clientes" },
+              {
+                icon: "⚙️",
+                text: "Haz parte de la red más grande de talleres",
+              },
             ].map((item) => (
-              <div key={item.text} className="flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-3.5 hover:border-border-green transition-colors">
-                <span className="text-xl">{item.icon}</span>
-                <span className="text-foreground font-semibold text-[15px]">{item.text}</span>
+              <div
+                key={item.text}
+                className="group flex items-center gap-4 bg-gradient-to-r from-[#121f32] to-[#1a2e4d] backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 hover:border-[#ff5a00]/30 transition-all duration-500 hover:translate-x-3 overflow-hidden relative"
+              >
+                {/* Iluminación interna de color */}
+                <div className="absolute inset-y-0 left-0 w-1 bg-[#ff5a00] opacity-30 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#ff5a00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <span className="relative z-10 text-2xl drop-shadow-[0_0_12px_rgba(255,90,0,0.5)] group-hover:scale-125 transition-transform duration-500">
+                  {item.icon}
+                </span>
+                <span className="relative z-10 text-white font-bold text-[16px] tracking-wide">
+                  {item.text}
+                </span>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 inline-block bg-primary text-primary-foreground font-display text-[13px] font-black tracking-[2px] uppercase py-3 px-5 rounded-lg">
+          <div className="mt-8 inline-block bg-[#ff5a00] text-white font-display text-[14px] font-black tracking-[3px] uppercase py-3.5 px-7 rounded-full shadow-[0_0_30px_rgba(255,90,0,0.4)]">
             INCLUIDO 100% GRATIS
           </div>
-        </div>
-
-        <div className="flex justify-center">
-          <img src={pitzonHero} alt="PITZON App" className="max-w-full w-[480px] rounded-2xl" style={{ filter: 'drop-shadow(0 20px 60px rgba(93,187,60,.2))' }} />
         </div>
       </div>
     </div>

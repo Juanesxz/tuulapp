@@ -1,39 +1,38 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
-
 @layer base {
   :root {
-    --background: 120 18% 4.3%;
-    --foreground: 120 20% 84%;
-    --card: 120 13% 9.8%;
-    --card-foreground: 120 20% 84%;
-    --card-hover: 120 13% 12%;
-    --popover: 120 13% 9.8%;
-    --popover-foreground: 120 20% 84%;
-    --primary: 105 52% 48.4%;
+    --background: 216 47% 11%;
+    --foreground: 216 20% 90%;
+    --card: 216 47% 9%;
+    --card-foreground: 216 20% 90%;
+    --card-hover: 216 47% 12%;
+    --popover: 216 47% 10%;
+    --popover-foreground: 216 20% 90%;
+    --primary: 86 86% 53%;
     --primary-foreground: 0 0% 0%;
-    --primary-dark: 105 58% 42%;
-    --secondary: 120 18% 5.5%;
-    --secondary-foreground: 120 20% 84%;
-    --muted: 120 14% 47.8%;
-    --muted-foreground: 120 14% 47.8%;
-    --accent: 120 18% 5.5%;
-    --accent-foreground: 120 20% 84%;
+    --primary-dark: 86 90% 45%;
+    --secondary: 216 30% 15%;
+    --secondary-foreground: 216 20% 90%;
+    --muted: 216 20% 45%;
+    --muted-foreground: 216 20% 45%;
+    --accent: 216 47% 15%;
+    --accent-foreground: 216 20% 90%;
     --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
     --gold: 42 86% 55%;
-    --border: 0 0% 100% / 0.07;
-    --border-green: 105 52% 48.4% / 0.22;
-    --input: 0 0% 100% / 0.07;
-    --ring: 105 52% 48.4%;
+    --border: 216 47% 90% / 0.1;
+    --border-green: 86 86% 53% / 0.22;
+    --input: 216 47% 90% / 0.07;
+    --ring: 86 86% 53%;
     --radius: 0.5rem;
-    --green-glow-sm: 0 0 40px rgba(93,187,60,.3);
-    --green-glow-lg: 0 0 80px rgba(93,187,60,.6);
-    --green-glow-bg: rgba(93,187,60,.09);
-    --green-glow-bg2: rgba(93,187,60,.15);
+    --green-glow-sm: 0 0 40px rgba(128, 237, 33, .3);
+    --green-glow-lg: 0 0 80px rgba(128, 237, 33, .6);
+    --green-glow-bg: rgba(128, 237, 33, .09);
+    --green-glow-bg2: rgba(128, 237, 33, .15);
   }
 }
 
@@ -48,7 +47,22 @@
   }
 }
 
+@layer components {
+  .bounce-arrow {
+    animation: bounceArrow 1.5s ease-in-out infinite;
+  }
+}
+
 @layer utilities {
+  @keyframes bounceArrow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(12px);
+    }
+  }
+  
   .font-display {
     font-family: 'Barlow Condensed', sans-serif;
   }
@@ -60,8 +74,8 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 40px rgba(93,187,60,.3); }
-  50% { box-shadow: 0 0 80px rgba(93,187,60,.6); }
+  0%, 100% { box-shadow: 0 0 40px rgba(128, 237, 33, .3); }
+  50% { box-shadow: 0 0 80px rgba(128, 237, 33, .6); }
 }
 
 @keyframes fadeUp {
@@ -91,4 +105,49 @@
 
 .animate-fade-up-3 {
   animation: fadeUp 0.7s ease both 0.24s;
+}
+
+/* Animación de Brillo de Alta Intensidad (Glow Pulse Strong) */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(121, 245, 12, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    opacity: 0.98;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(128, 237, 33, 1), 0 0 40px rgba(128, 237, 33, 0.5), inset 0 0 25px rgba(255, 255, 255, 0.3);
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 1.6s ease-in-out infinite;
+}
+
+.shadow-neon-strong {
+  box-shadow: 0 0 50px rgba(128, 237, 33, 0.8);
+}
+
+.gradient-glow {
+  background: linear-gradient(135deg, #80ed21 0%, #6ecb1c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-glow::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
 }

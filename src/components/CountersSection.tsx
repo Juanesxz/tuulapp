@@ -43,13 +43,13 @@ const Counter = ({ target, label }: { target: number; label: string }) => {
   return (
     <div ref={ref} className="text-center py-6 px-4 border-b md:border-b-0 md:border-r border-border last:border-r-0 last:border-b-0">
       <div className="font-display text-[clamp(34px,3.5vw,50px)] font-black text-primary leading-none tracking-tight">{fmt(value)}</div>
-      <div className="text-[12px] text-muted-foreground mt-1.5 font-semibold tracking-wide leading-snug">{label}</div>
+      <div className="text-[16px] text-white mt-1.5  tracking-wide leading-snug">{label}</div>
     </div>
   );
 };
 
 const CountersSection = () => (
-  <section className="bg-secondary py-14 px-5 md:px-[60px] border-b border-border">
+  <section className="bg-secondary py-14 px-5 md:px-[60px] border-b border-border overflow-hidden">
     <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-3">
       {counters.map((c) => (
         <Counter key={c.label} {...c} />

@@ -1,27 +1,61 @@
 const badItems = [
-  { icon: '📓', text: 'Cuadernos, WhatsApp y memoria para manejar tu operación' },
-  { icon: '😤', text: 'Discutiendo con clientes porque "eso no se habló" — sin fotos, sin registro, sin respaldo' },
-  { icon: '💸', text: 'Perdiendo dinero en repuestos que desaparecen y servicios que nadie cobra completos' },
-  { icon: '🔥', text: 'Apagando incendios todo el día, sin tiempo para crecer ni para tu familia' },
-  { icon: '📅', text: 'En 12 meses exactamente en el mismo lugar — o peor' },
+  {
+    icon: "📓",
+    text: "Cuadernos, WhatsApp y memoria para manejar tu operación",
+  },
+  {
+    icon: "😤",
+    text: 'Discutiendo con clientes porque "eso no se habló" — sin fotos, sin registro, sin respaldo',
+  },
+  {
+    icon: "💸",
+    text: "Perdiendo dinero en repuestos que desaparecen y servicios que nadie cobra completos",
+  },
+  {
+    icon: "🔥",
+    text: "Apagando incendios todo el día, sin tiempo para crecer ni para tu familia",
+  },
+  { icon: "📅", text: "En 12 meses exactamente en el mismo lugar — o peor" },
 ];
 
 const goodItems = [
-  { icon: '📱', text: 'Órdenes digitales con fotos y firmas — todo documentado, nada perdido, cero riesgo legal' },
-  { icon: '🗂️', text: 'Historial completo de cada vehículo y cliente. Profesionalismo que genera confianza real' },
-  { icon: '📦', text: 'Inventario en tiempo real. Sabes exactamente qué tienes, qué necesitas y cuánto ganas' },
-  { icon: '🌎', text: 'Controlas tu taller desde cualquier parte. El negocio funciona aunque no estés ahí' },
-  { icon: '💚', text: 'Cuando tu taller tiene orden, tú llegas diferente a casa. Tu familia también lo siente' },
-  { icon: '🏆', text: 'Te unes a +1.000 talleres en 29 países que ya dejaron de trabajar para su negocio' },
+  {
+    icon: "📱",
+    text: "Órdenes digitales con fotos — todo documentado, nada perdido, cero riesgo legal",
+  },
+  {
+    icon: "🗂️",
+    text: "Historial completo de cada vehículo y cliente. Profesionalismo que genera confianza real",
+  },
+  {
+    icon: "📦",
+    text: "Inventario en tiempo real. Sabes exactamente qué tienes, qué necesitas y cuánto ganas",
+  },
+  {
+    icon: "🌎",
+    text: "Controlas tu taller desde cualquier parte. El negocio funciona aunque no estés ahí",
+  },
+  {
+    icon: "💚",
+    text: "Cuando tu taller tiene orden, tú llegas diferente a casa. Tu familia también lo siente",
+  },
+  {
+    icon: "🏆",
+    text: "Te unes a la red de talleres más grande de Latinoamérica",
+  },
 ];
 
 const OptionsSection = () => (
-  <section className="bg-background border-b border-border py-20 px-5 md:px-[60px]">
+  <section className="bg-background border-b border-border py-20 px-5 md:px-[60px] overflow-hidden">
     <div className="max-w-[1060px] mx-auto">
       <div className="text-center mb-12">
-        <span className="text-[11px] font-bold tracking-[3px] uppercase text-primary mb-3 block">Tu decisión de hoy</span>
-        <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] tracking-tight">
-          Hoy tienes<br /><span className="text-primary">dos opciones</span>
+        <span className="text-[11px] font-bold tracking-[3px] uppercase text-primary mb-3 block">
+          Tu decisión de hoy
+        </span>
+        <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] tracking-tight italic">
+          Hoy tienes
+          <br />
+          <span className="text-primary">dos opciones</span>
         </h2>
       </div>
 
@@ -31,14 +65,20 @@ const OptionsSection = () => (
             ❌ Opción 1 — Seguir como estás
           </div>
           {badItems.map((item, i) => (
-            <div key={i} className="flex gap-3 items-start mb-3.5 text-sm text-foreground leading-relaxed">
+            <div
+              key={i}
+              className="flex gap-3 items-start mb-3.5 text-sm text-foreground leading-relaxed"
+            >
               <span className="shrink-0 mt-px">{item.icon}</span>
               {item.text}
             </div>
           ))}
         </div>
 
-        <div className="hidden md:flex bg-card items-center justify-center px-5 font-display text-xl text-muted-foreground tracking-[3px] border-l border-r border-border" style={{ writingMode: 'vertical-rl' }}>
+        <div
+          className="hidden md:flex bg-card items-center justify-center px-5 font-display text-xl text-muted-foreground tracking-[3px] border-l border-r border-border"
+          style={{ writingMode: "vertical-rl" }}
+        >
           VS
         </div>
 
@@ -47,7 +87,10 @@ const OptionsSection = () => (
             ✅ Opción 2 — Con TuulApp + $750 USD en beneficios
           </div>
           {goodItems.map((item, i) => (
-            <div key={i} className="flex gap-3 items-start mb-3.5 text-sm text-foreground leading-relaxed">
+            <div
+              key={i}
+              className="flex gap-3 items-start mb-3.5 text-sm text-foreground leading-relaxed"
+            >
               <span className="shrink-0 mt-px">{item.icon}</span>
               {item.text}
             </div>
