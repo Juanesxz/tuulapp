@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 
@@ -29,6 +29,9 @@ const whatsappReviews = [
 ];
 
 const TestimonialsSection = () => {
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -38,6 +41,34 @@ const TestimonialsSection = () => {
       "(min-width: 700px)": { slidesToScroll: 1 },
     },
   });
+
+  useEffect(() => {
+    // Sincronización robusta: Pausar todos los videos que no sean el activo
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (activeVideo === i) {
+        video.muted = false;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.muted = true;
+        if (activeVideo === null) {
+          video.currentTime = 0;
+        }
+      }
+    });
+
+    // Cerrar/pausar si se hace click fuera del carrusel
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (activeVideo !== null && !target.closest(".group\\/video")) {
+        setActiveVideo(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [activeVideo]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -50,8 +81,8 @@ const TestimonialsSection = () => {
   return (
     <section className="bg-secondary border-t border-b border-border py-20 px-0 md:px-10 overflow-hidden">
       <div className="max-w-[1140px] mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-[clamp(24px,4vw,50px)] leading-1 font-black uppercase text-white tracking-tight italic underline">
+        <div className="text-center mb-16 px-3">
+          <h2 className="font-display text-[clamp(20px,3.2vw,36px)] leading-tight font-black uppercase text-white tracking-tight italic underline">
             Esto dicen los dueños de taller que ya{" "}
             <span className="text-primary">dieron el salto</span>
           </h2>
@@ -71,15 +102,30 @@ const TestimonialsSection = () => {
                 >
                   <div className="bg-card border border-border rounded-2xl overflow-hidden aspect-[9/16] relative group/video shadow-2xl transition-transform duration-500 group-[.is-selected]:scale-100 scale-90">
                     <video
+                      ref={(el) => (videoRefs.current[index] = el)}
                       src={v.url}
                       className="w-full h-full object-cover"
                       playsInline
-                      muted
-                      onMouseOver={(e) => (e.target as HTMLVideoElement).play()}
+                      muted={activeVideo !== index}
+                      controls={activeVideo === index}
+                      onMouseOver={(e) => {
+                        if (activeVideo === null) {
+                          (e.target as HTMLVideoElement).play().catch(() => {});
+                        }
+                      }}
                       onMouseOut={(e) => {
-                        const video = e.target as HTMLVideoElement;
-                        video.pause();
-                        video.currentTime = 0;
+                        if (activeVideo === null) {
+                          const video = e.target as HTMLVideoElement;
+                          video.pause();
+                          video.currentTime = 0;
+                        }
+                      }}
+                      onClick={() => {
+                        if (activeVideo === index) {
+                          setActiveVideo(null);
+                        } else {
+                          setActiveVideo(index);
+                        }
                       }}
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover/video:bg-transparent transition-colors flex flex-col items-center justify-center pointer-events-none">

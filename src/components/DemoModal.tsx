@@ -117,7 +117,7 @@ const DemoModal = ({ open, onClose }: DemoModalProps) => {
               value={tel}
               onChange={(e) => setTel(e.target.value)}
               type="tel"
-              placeholder="Tu número sin indicativo"
+              placeholder="Tu número"
               className="w-full bg-card border border-border rounded-lg px-3.5 py-3 text-sm text-white outline-none focus:border-primary transition-colors"
             />
           </div>

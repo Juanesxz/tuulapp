@@ -77,11 +77,11 @@ const BonosSection = ({ onOpenModal }: BonosProps) => (
                   <div className="font-display font-black shrink-0 flex items-center gap-2">
                     {b.price.includes("|") ? (
                       <>
-                        <span className="text-red-500/60 line-through text-[15px]">
+                        <span className="text-red-500 line-through text-[15px]">
                           {b.price.split("|")[0].trim()}
                         </span>
                         <span className="text-white/20 font-light">|</span>
-                        <span className="text-primary text-[13px] drop-shadow-[0_0_8px_rgba(128,237,33,0.4)] animate-pulse uppercase tracking-wider">
+                        <span className="text-primary text-[15px] drop-shadow-[0_0_8px_rgba(128,237,33,0.4)] uppercase tracking-wider">
                           HOY GRATIS
                         </span>
                       </>
@@ -101,9 +101,9 @@ const BonosSection = ({ onOpenModal }: BonosProps) => (
         <div className="p-10 md:p-14 relative overflow-hidden text-center">
           <div className="relative z-10 flex flex-col items-center">
             <p className="text-[20px] md:text-[16px] text-white/70 mb-10 max-w-[600px] font-medium leading-relaxed">
-              Todo esto está valorado <br /> por{" "}
-              <span className="text-primary font-bold  italic">
-                más de <span className="text-red-500">$750 USD</span>
+              Todo esto está valorado <br /> por más de{" "}
+              <span className="text-red-500 font-bold italic">
+                $750 USD
               </span>
             </p>
             <h4 className="font-display text-[22px] md:text-[32px] font-black text-white uppercase italic tracking-tighter mb-3">

@@ -50,7 +50,7 @@ const OptionsSection = () => (
     <div className="max-w-[1060px] mx-auto">
       <div className="text-center mb-12">
         <span className="text-[11px] font-bold tracking-[3px] uppercase text-primary mb-3 block">
-          Tu decisión de hoy
+          Tu decisión
         </span>
         <h2 className="font-display text-[clamp(28px,4vw,50px)] font-black uppercase text-white leading-[1.05] tracking-tight italic">
           Hoy tienes

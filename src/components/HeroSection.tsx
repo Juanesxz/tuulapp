@@ -33,7 +33,7 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
       player.on("timeupdate", (data) => {
         const percentage = (data.seconds / data.duration) * 100;
         setProgress(percentage);
-        if (percentage >= 1) {
+        if (percentage >= 90) {  
           setHasReachedThreshold(true);
         }
       });
@@ -171,24 +171,8 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
                       ¡Toca aquí para seguir viendo!
                     </div>
                     {/* Cursor de Mano HD */}
-                    <div className="absolute -bottom-8 -right-4 md:-right-8 w-12 md:w-18 h-12 md:h-18 pointer-events-none drop-shadow-xl">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <g
-                          fill="none"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="0"
-                        >
-                          <path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-6.5v-2a1.5 1.5 0 1 1 3 0V12m0-6.5a1.5 1.5 0 0 1 3 0V12" />
-                          <path d="M17 7.5a1.5 1.5 0 0 1 3 0V16a6 6 0 0 1-6 6h-2h.208a6 6 0 0 1-5.012-2.7L7 19q-.468-.718-3.286-5.728a1.5 1.5 0 0 1 .536-2.022a1.87 1.87 0 0 1 2.28.28L8 13" />
-                        </g>
-                      </svg>
+                    <div className="absolute -bottom-8 -right-4 md:-right-8 w-12 md:w-16 h-12 md:h-16 pointer-events-none drop-shadow-2xl text-white">
+                      <Hand className="w-full h-full fill-white/20" strokeWidth={1.5} />
                     </div>
                   </div>
                 </>
