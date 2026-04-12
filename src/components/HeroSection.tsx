@@ -70,8 +70,10 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
       if (isMuted) {
         playerRef.current.setMuted(false)
           .then(() => playerRef.current?.setVolume(1))
+          .then(() => playerRef.current?.setCurrentTime(0))
           .then(() => {
             setIsMuted(false);
+            setProgress(0);
             return playerRef.current?.play();
           })
           .catch(() => {});
@@ -89,9 +91,10 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
     if (!playerRef.current) return;
     playerRef.current.setMuted(false)
       .then(() => playerRef.current?.setVolume(1))
+      .then(() => playerRef.current?.setCurrentTime(0))
       .then(() => {
         setIsMuted(false);
-        // Asegurar que el video siga reproduciéndose
+        setProgress(0);
         return playerRef.current?.play();
       })
       .catch(() => {});
