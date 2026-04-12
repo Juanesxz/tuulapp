@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Hand } from "lucide-react";
+import { ChevronDown, Hand, VolumeX, Volume2 } from "lucide-react";
 import Player from "@vimeo/player";
 
 interface HeroProps {
@@ -12,6 +12,7 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [hasReachedThreshold, setHasReachedThreshold] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const playerRef = useRef<Player | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -20,8 +21,8 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
       const player = new Player(containerRef.current, {
         id: 1181629616,
         background: false,
-        autoplay: false,
-        muted: false,
+        autoplay: true,
+        muted: true,
         loop: true,
         transparent: true,
         controls: true,
@@ -65,10 +66,35 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
     if (!playerRef.current) return;
 
     if (isPlaying) {
+      // Si está en mute, primero activar sonido (no pausar)
+      if (isMuted) {
+        playerRef.current.setMuted(false)
+          .then(() => playerRef.current?.setVolume(1))
+          .then(() => {
+            setIsMuted(false);
+            return playerRef.current?.play();
+          })
+          .catch(() => {});
+        return;
+      }
       playerRef.current.pause();
     } else {
       playerRef.current.play();
     }
+  };
+
+  const handleUnmute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (!playerRef.current) return;
+    playerRef.current.setMuted(false)
+      .then(() => playerRef.current?.setVolume(1))
+      .then(() => {
+        setIsMuted(false);
+        // Asegurar que el video siga reproduciéndose
+        return playerRef.current?.play();
+      })
+      .catch(() => {});
   };
 
   return (
@@ -179,6 +205,24 @@ const HeroSection = ({ onOpenModal }: HeroProps) => {
               )}
             </div>
           </div>
+
+          {/* Unmute Overlay Banner */}
+          {isPlaying && isMuted && (
+            <div
+              onClick={handleUnmute}
+              className="absolute inset-0 z-30 bg-purple-700/80 cursor-pointer transition-all duration-300 hover:bg-purple-600/80 flex items-center justify-center"
+            >
+              <div className="flex flex-col items-center gap-2">
+                <p className="text-white font-black text-[clamp(14px,2.5vw,20px)] uppercase tracking-wide">
+                  Tu video ha comenzado
+                </p>
+                <VolumeX className="w-10 h-10 md:w-14 md:h-14 text-white drop-shadow-lg" strokeWidth={2} />
+                <p className="text-white font-bold text-[clamp(13px,2.2vw,18px)] tracking-wide">
+                  Haz clic para escuchar
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Custom Progress Bar */}
           <div className="absolute bottom-0 left-0 w-full h-2 bg-white/10 overflow-hidden z-30">
