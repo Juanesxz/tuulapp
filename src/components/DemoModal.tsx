@@ -51,15 +51,13 @@ const DemoModal = ({ open, onClose }: DemoModalProps) => {
     }
 
     const messageLines = [
-      `Hola ${name} 👋, ¡Bienvenido(a) a Tuulapp 💚!`,
+      `Hola ${name} 👋, ¡Bienvenido(a) a TuulApp 🚗!`,
       "",
       "Para agendar tu demo lo más pronto posible, respóndenos con lo siguiente:",
       "",
-      "1️⃣ País:",
-      "2️⃣ Tipo de taller:",
-      "3️⃣ ¿Cuántos vehículos atiendes en promedio al mes?:",
-      "4️⃣ Rol en tu taller:",
-      "5️⃣ Fecha y hora sugerida para la reunión",
+      "🔧 Tipo de taller:",
+      "🚙 ¿Cuántos vehículos atiendes en promedio al mes?:",
+      "👨‍🔧 ¿Eres el dueño de taller?:",
     ];
 
     const msg = encodeURIComponent(messageLines.join("\n")).replace(
