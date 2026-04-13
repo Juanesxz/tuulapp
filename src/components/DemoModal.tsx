@@ -44,6 +44,11 @@ const DemoModal = ({ open, onClose }: DemoModalProps) => {
           }),
         }
       );
+
+      // Rastreo manual de Lead para Meta Pixel
+      if (typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Lead");
+      }
     } catch (error) {
       console.error("Error al guardar los datos:", error);
     } finally {
